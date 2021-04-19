@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Article Uploader</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1 class="mainTitle">Publish a new article</h1>
+
+        <p class="instruction">First upload some images. (one-by-one)</p>
+        <form id="image-upload" name="image-upload-form" accept-charset="utf-8" action="backend.com/imageuploadroute" method="POST" enctype="multipart/form-data">
+            <fieldset id="image-upload-inputs">
+                <label for="folderNumber">Folder number</label>
+                <input type="number" name="folderNumber" id="imgFolderNumber" placeholder="0" required="">
+                <label for="image">Next Image</label>
+                <input type="file" name="image" id="imageUpload">
+                <label for="uploadStatus">Upload Status</label>
+                <p name="image-upload-status" id="imageUploadStatus"></p>
+
+                <!-- probably delete this--><input type="hidden" name="_subject" id="subject" value="File Upload Form Submission">
+            </fieldset>
+            <input type="submit" value="Upload the File">
+        </form>
+
+        <p class="instruction">When you finished with the image uploads, create the article.</p>
+        <form id="article-upload" name="article-upload-form" accept-charset="utf-8" action="backend.com/articlepublishroute" method="POST">
+            <fieldset id="article-upload-meta">
+                <label for="folderNumber">Folder number</label>
+                <input type="number" name="folderNumber" id="articleFolderNumber" placeholder="0" required="">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="articleTitle" placeholder="type the title of the article here" required="">
+                <label for="desc">Description</label>
+                <input type="text" name="description" id="articleDesc" placeholder="you can write some description here.">
+                <label for="coverSelect">Cover Image</label>
+                <select name="cover" id="articleCoverSelect"></select>
+            </fieldset>
+            <fieldset id="article-upload-content"">
+                <label for="content">Content (in Markdown)</label>
+                <!--form= attribute?--><textarea name="content" id="articleContent" placeholder="#markdown content  text goes here" required=""></textarea>
+                <!-- probably delete this--><input type="hidden" name="_subject" id="subject" value="File Upload Form Submission">
+            </fieldset>
+            <input type="submit" value="Upload the File">
+        </form>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

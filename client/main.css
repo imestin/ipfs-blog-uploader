@@ -1,0 +1,21 @@
+:root {
+    --example: #FFFFFF;
+}
+
+.mainTitle {
+    margin-bottom: 4vh;
+}
+.instruction {
+    font-weight: bolder;
+}
+
+
+#image-upload {
+    margin-bottom: 8vh;
+}
+
+
+#articleContent {
+    height: 40vh;
+    width: 90vw;
+}
