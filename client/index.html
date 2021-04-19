@@ -10,7 +10,7 @@
         <h1 class="mainTitle">Publish a new article</h1>
 
         <p class="instruction">First upload some images. (one-by-one)</p>
-        <form id="image-upload" name="image-upload-form" accept-charset="utf-8" action="backend.com/imageuploadroute" method="POST" enctype="multipart/form-data">
+        <form id="image-upload" name="image-upload-form" accept-charset="utf-8" action="http://localhost:3000/upload-image" method="POST" enctype="multipart/form-data" onsubmit="imageUpload">
             <fieldset id="image-upload-inputs">
                 <label for="folderNumber">Folder number</label>
                 <input type="number" name="folderNumber" id="imgFolderNumber" placeholder="0" required="">
@@ -24,8 +24,8 @@
             <input type="submit" value="Upload the File">
         </form>
 
-        <p class="instruction">When you finished with the image uploads, create the article.</p>
-        <form id="article-upload" name="article-upload-form" accept-charset="utf-8" action="backend.com/articlepublishroute" method="POST">
+        <p class="instruction">When you finished with the image uploads, create the article. Folder number has to be the same</p>
+        <form id="article-upload" name="article-upload-form" accept-charset="utf-8" action="http://localhost:3000/publish-article" method="POST">
             <fieldset id="article-upload-meta">
                 <label for="folderNumber">Folder number</label>
                 <input type="number" name="folderNumber" id="articleFolderNumber" placeholder="0" required="">
@@ -41,7 +41,7 @@
                 <!--form= attribute?--><textarea name="content" id="articleContent" placeholder="#markdown content  text goes here" required=""></textarea>
                 <!-- probably delete this--><input type="hidden" name="_subject" id="subject" value="File Upload Form Submission">
             </fieldset>
-            <input type="submit" value="Upload the File">
+            <input type="submit" value="PUBLISH">
         </form>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
