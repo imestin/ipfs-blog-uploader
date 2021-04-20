@@ -12,7 +12,7 @@ router.post('/upload-image', async (req, res) => {
             });
         } else {
             let image = req.files.image;
-            let folderPath = process.env.BLOG_HOME + req.body.folderNumber;
+            let folderPath = process.env.BLOG_HOME + 'articles/' + req.body.folderNumber;
             image.mv(folderPath + '/' + image.name);
             let fileList = fs.readdirSync(folderPath);
             res.send({
@@ -27,7 +27,7 @@ router.post('/upload-image', async (req, res) => {
             });
         }
     } catch (err) {
-        res.status(500).send("Server side error: " + err);
+        res.status(500).send("Server side error (imageUpload): " + err);
     }
 })
 

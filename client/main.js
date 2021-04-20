@@ -41,6 +41,7 @@ imageUploadForm.onsubmit =  async function imageUpload(event) {
     
 }
 
+
 function listCoverOptions(filesArray) {
     let dropdown = document.getElementById("articleCoverSelect");
     dropdown.innerHTML = "";                            // Avoid duplicating <option> entries

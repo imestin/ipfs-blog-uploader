@@ -15,7 +15,9 @@ app.use(fileUpload({
 }));
 // Other middlewares
 app.use(cors());
-//app.use(bodyParser.json());
+// middleware
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(morgan('dev'));
 
 // Routes

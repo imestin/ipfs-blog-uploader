@@ -14,12 +14,12 @@ router.get('/give-next-number', async (req, res) => {
             nextFolder: nextArticleFolder
         });
     } catch (error) {
-        res.status(500).send("Server side error: " + error);
+        res.status(500).send("Server side error (giveNextNumber): " + error);
     }
 });
 
 function isFolderExist(folderNumber) {
-    if (fs.existsSync(process.env.BLOG_HOME + folderNumber)) {
+    if (fs.existsSync(process.env.BLOG_HOME + 'articles/' + folderNumber)) {
         return true;
     } else {
         return false;
