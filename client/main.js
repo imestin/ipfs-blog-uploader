@@ -1,11 +1,12 @@
-console.log("Szia!")
+console.log("Szia!");
+const serverURL = '5.199.162.65'
 
 suggestFolderName();
 
 
 async function suggestFolderName() {
     // Server will check for next non-existent directory
-    let serverResponse = await fetch('http://localhost:3000/give-next-number')
+    let serverResponse = await fetch(serverURL + '/give-next-number')
         .then(resp => resp.json())
         .catch((err) => console.error("Error", err));
     document.getElementById("imgFolderNumber").value = serverResponse.nextFolder;
@@ -26,7 +27,7 @@ imageUploadForm.onsubmit =  async function imageUpload(event) {
     formData.append('folderNumber', folderNumber);
     
     
-    axios.post('http://localhost:3000/upload-image', formData, {
+    axios.post(serverURL + '/upload-image', formData, {
         onUploadProgress: (ProgressEvent) => {
             let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
             console.log("progress: " + progress)
