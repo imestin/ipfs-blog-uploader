@@ -1,5 +1,5 @@
 console.log("Szia!");
-const serverURL = 'http://5.199.162.65:3000'
+const serverURL = 'http://localhost:3000'
 
 suggestFolderName();
 
