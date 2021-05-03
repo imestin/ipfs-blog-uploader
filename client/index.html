@@ -10,7 +10,7 @@
         <h1 class="mainTitle">Publish a new article</h1>
 
         <p class="instruction">First upload some images. (one-by-one)</p>
-        <form id="image-upload" name="image-upload-form" accept-charset="utf-8" action="http://5.199.162.65:3000/upload-image" method="POST" enctype="multipart/form-data" onsubmit="imageUpload">
+        <form id="image-upload" name="image-upload-form" accept-charset="utf-8" action="http://localhost:3000/upload-image" method="POST" enctype="multipart/form-data" onsubmit="imageUpload">
             <fieldset id="image-upload-inputs">
                 <label for="folderNumber">Folder number</label>
                 <input type="number" name="folderNumber" id="imgFolderNumber" placeholder="0" required="">
@@ -25,7 +25,7 @@
         </form>
 
         <p class="instruction">When you finished with the image uploads, create the article. Folder number has to be the same</p>
-        <form id="article-upload" name="article-upload-form" accept-charset="utf-8" action="http://5.199.162.65:3000/publish-article" method="POST">
+        <form id="article-upload" name="article-upload-form" accept-charset="utf-8" action="http://localhost:3000/publish-article" method="POST">
             <fieldset id="article-upload-meta">
                 <label for="folderNumber">Folder number</label>
                 <input type="number" name="folderNumber" id="articleFolderNumber" placeholder="0" required="">
