@@ -1,6 +1,7 @@
 const fs = require('fs');
 const exec = require('await-exec');
 const { assert } = require('console');
+const { resolveIPNSAddresses } = require('./resolveIPNS');
 
 function writeArticleFile(inputString, folderNumber) {
     fs.writeFile(process.env.BLOG_HOME + 'articles/' + folderNumber + '/article.md', inputString, function(err) {
@@ -97,11 +98,30 @@ function updateDBfile(newCID) {
     }
 }
 
+async function writeCIDsToFile() {
+    let dbObj = null;
+    const jsonPath = process.env.BLOG_HOME + 'database.json';
+    const jsonString = fs.readFileSync(jsonPath, { encoding: 'utf8', flag:'r'} );
+    try {
+        let CIDsObj = await resolveIPNSAddresses();
+        console.log("CIDsObj: ", CIDsObj);
+        dbObj = JSON.parse(jsonString);
+        dbObj.current_site_cid = CIDsObj.currentSiteCID;
+        dbObj.current_articles_cid = CIDsObj.currentArticlesCID;
+        dbObj.last_db_cid = CIDsObj.lastDBCID;
+        const writeFile = fs.writeFileSync(jsonPath, JSON.stringify(dbObj, null, "  "));
+        console.log("CIDs were written to database.json.");
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
 module.exports = {
     writeArticleFile: writeArticleFile,
     addSingleArticle: addSingleArticle,
     writeMetaJSON: writeMetaJSON,
     publishArticles: publishArticles,
-    publishDatabase: publishDatabase
+    publishDatabase: publishDatabase,
+    writeCIDsToFile: writeCIDsToFile
 }

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { assert } = require('console');
-const { writeArticleFile, writeMetaJSON, addSingleArticle, publishArticles, publishDatabase } = require('../utils/createArticle');
+const { writeArticleFile, writeMetaJSON, addSingleArticle, publishArticles, publishDatabase, writeCIDsToFile } = require('../utils/createArticle');
 
 require('dotenv').config();
 
@@ -23,6 +23,7 @@ router.post('/publish-article', async (req, res) => {
         assert(ipfsResponse === 0, "Error in addSingleArticle function");
 
         await publishArticles();
+        await writeCIDsToFile();
         await publishDatabase();
     } catch (error) {
         res.status(500).send("Server side error (publishArticle): " + error);
