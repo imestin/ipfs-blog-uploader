@@ -1,14 +1,14 @@
 # Generate
 
 ### 1) Generate new key
-   `ipfs key gen -t rsa -s 4096 BlogNameDB` 
-   `ipfs key gen -t rsa -s 4096 BlogNameArticles`
+   `ipfs key gen -t rsa -s 4096 BlogNameDB`  
+   `ipfs key gen -t rsa -s 4096 BlogNameArticles`  
    `ipfs key gen -t rsa -s 4096 BlogNameSite`
 
 
 ### 2) Save the key identifiers
-   `echo "k2k4EXAMPLEXxWZ9dbd3d7cuQTok9RT3FZe61TEvFIRST" > TesterDB.asc`
-   `echo "k2k4EXAMPLEyXxWZ9dbd3d7cuQTok9RT3FZe61TEsvSECOND" > TesterArticles.asc`
+   `echo "k2k4EXAMPLEXxWZ9dbd3d7cuQTok9RT3FZe61TEvFIRST" > TesterDB.asc`  
+   `echo "k2k4EXAMPLEyXxWZ9dbd3d7cuQTok9RT3FZe61TEsvSECOND" > TesterArticles.asc`  
    `echo "k2k4EXAMPLEyXxWZ9dbd3d7cuQTok9RTFZe61TEvTHIRD" > TesterSite.asc`
 
 ### 3) Edit website
@@ -32,7 +32,7 @@
 
 
 ### 7) Edit `database.json`
-   The articles need to exist in the database file, add the CIDs to the array.
+   The articles need to exist in the database file, add the CIDs to the array.  
    `ipfs add DataFolder/database.json`
 
 
@@ -56,7 +56,7 @@
 
 
 ### 2) Edit `database.json`
-   The new article needs to exist in the database file, add the CID to the array.
+   The new article needs to exist in the database file, add the CID to the array.  
    `ipfs add DataFolder/database.json`
 
 ### 3) Republish articles folder
